@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "docket": {
+      "command": "docket",
+      "args": ["mcp", "--scope", "/path/to/scope.json", "--target", "/path/to/repo", "--auto-verify"]
+    }
+  }
+}

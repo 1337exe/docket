@@ -1,0 +1,8 @@
+docket:
+  image: python:3.12
+  script:
+    - pip install git+https://github.com/1337exe/docket
+    - docket try scan.sarif --scope .docket/scope.json --target . --json report.json --markdown-out summary.md --pack proof-pack.zip --fail-on survived
+  artifacts:
+    when: always
+    paths: [docket-report.html, report.json, summary.md, proof-pack.zip]

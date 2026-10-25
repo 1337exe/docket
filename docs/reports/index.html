@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'">
+<title>Docket on public code</title><style>
+:root{--bg:#f7fafa;--fg:#10222a;--m:#51666e;--card:#fff;--line:#c9d6d6;--ok:#15803d;--wa:#b45309;--ba:#b91c1c;--a:#0d9488}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1519;--fg:#e6f4f1;--m:#8fb0b5;--card:#122229;--line:#2a4249;--ok:#4ade80;--wa:#fbbf24;--ba:#f87171;--a:#2dd4bf}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,sans-serif}
+main{max-width:900px;margin:0 auto;padding:28px 16px 60px}h1{margin:0 0 6px;font-size:26px}a{color:var(--a)}
+.m{color:var(--m);font-size:13px}table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:18px 0}
+td,th{padding:10px 12px;text-align:right;border-top:1px solid var(--line)}td:first-child,th:first-child{text-align:left}th{border-top:0;font-size:13px;color:var(--m)}
+.ok{color:var(--ok);font-weight:700}.wa{color:var(--wa);font-weight:700}.ba{color:var(--ba);font-weight:700}tr.t td{background:var(--bg)}
+.n{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--a);border-radius:8px;padding:12px 14px;margin:14px 0}
+</style></head><body><main>
+<h1>Docket on public code</h1>
+<p class="m">Docket 0.3.0 · input: Bandit output for each repository · no AI, no live probes · reproduce with <code>bash benchmarks/run_public.sh</code></p>
+<table><tr><th>Repository (open the report)</th><th>Bandit results</th><th>Survived</th><th>Need a human</th><th>Killed</th></tr>
+<tr><td><a href="pygoat.html"><b>pygoat</b></a><br><span class="m">Deliberately vulnerable Django app · <a href="https://github.com/adeyosemanputra/pygoat">source</a></span></td><td>130</td><td class="ok">41</td><td class="wa">62</td><td class="ba">27</td></tr>
+<tr><td><a href="Vulnerable-Flask-App.html"><b>Vulnerable-Flask-App</b></a><br><span class="m">Deliberately vulnerable Flask app · <a href="https://github.com/we45/Vulnerable-Flask-App">source</a></span></td><td>18</td><td class="ok">5</td><td class="wa">5</td><td class="ba">8</td></tr>
+<tr><td><a href="VAmPI.html"><b>VAmPI</b></a><br><span class="m">Deliberately vulnerable REST API · <a href="https://github.com/erev0s/VAmPI">source</a></span></td><td>7</td><td class="ok">2</td><td class="wa">3</td><td class="ba">2</td></tr>
+<tr><td><a href="dvpwa.html"><b>dvpwa</b></a><br><span class="m">Deliberately vulnerable aiohttp app · <a href="https://github.com/anxolerd/dvpwa">source</a></span></td><td>2</td><td class="ok">0</td><td class="wa">2</td><td class="ba">0</td></tr>
+<tr><td><a href="flask.html"><b>Flask</b></a><br><span class="m">Maintained web framework (a library, not an app) · <a href="https://github.com/pallets/flask">source</a></span></td><td>52</td><td class="ok">0</td><td class="wa">10</td><td class="ba">42</td></tr>
+<tr><td><a href="requests.html"><b>Requests</b></a><br><span class="m">Maintained HTTP library · <a href="https://github.com/psf/requests">source</a></span></td><td>16</td><td class="ok">0</td><td class="wa">16</td><td class="ba">0</td></tr>
+<tr class="t"><td><b>Total</b></td><td>225</td><td class="ok">48</td><td class="wa">98</td><td class="ba">79</td></tr></table>
+<div class="n"><b>How to read these.</b> Open a report, then open any <i>killed</i> finding: it says which check killed it and why.
+Open any <i>needs-human</i> finding: the "What to do next" box names the exact flag or evidence that would settle it.</div>
+<div class="n"><b>Be careful with the numbers.</b> The first three apps are built to be vulnerable, so their survivors are the bugs they were designed to contain, not new discoveries.
+Flask and Requests are maintained libraries; most of their Bandit results are test code. We read the kills by hand and fixed two real mistakes this exposed, but this is one scanner and a spot check, not a labelled benchmark.
+Secret-looking values are masked in the reports.</div>
+</main></body></html>

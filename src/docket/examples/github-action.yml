@@ -1,0 +1,33 @@
+# .github/workflows/docket.yml
+# Scanners / AI agents produce candidates; Docket decides which are allowed to reach a human.
+name: docket
+on: [pull_request]
+permissions: { contents: read, security-events: write }
+jobs:
+  court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install git+https://github.com/1337exe/docket
+      - name: run your scanner (any SARIF / Semgrep / Nuclei / Trivy / Gitleaks output works)
+        run: |
+          pip install semgrep
+          semgrep scan --config auto --sarif --output scan.sarif . || true
+      - name: put the findings on trial
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # optional: only for --judge / --escalate
+        run: |
+          docket try scan.sarif --scope .docket/scope.json --target . \
+            --suppressions .docket/suppressions.json --audit-log .docket/audit.jsonl \
+            --json report.json --sarif-out survivors.sarif --annotate-sarif annotated.sarif \
+            --markdown-out summary.md --pack proof-pack.zip --fail-on survived
+      - if: always()
+        run: cat summary.md >> "$GITHUB_STEP_SUMMARY"
+      - if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with: { sarif_file: annotated.sarif }
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: docket, path: "docket-report.html\nreport.json\nproof-pack.zip" }

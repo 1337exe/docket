@@ -1,0 +1,3 @@
+- [ ] `python -m pytest -q` passes and `docket selftest` prints `install is healthy`
+- [ ] New verifier or proof rule has a passing test AND a failing test (it must be able to say no)
+- [ ] Unknown or malformed input becomes `unverified`, never `pass`

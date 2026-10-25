@@ -1,0 +1,4 @@
+{"accepted_impacts": ["rce", "data-exfiltration", "account-takeover", "ssrf-internal-access"],
+ "attacker_states": ["unauthenticated", "authenticated-user"], "require_judge": false,
+ "impact_map": {"sqli": "data-exfiltration", "cmdi": "rce", "code-exec": "rce", "deserialization": "rce", "path-traversal": "data-exfiltration",
+   "ssrf": "ssrf-internal-access", "xss": "account-takeover", "open-redirect": "account-takeover", "ssti": "rce", "secrets": "account-takeover"}}

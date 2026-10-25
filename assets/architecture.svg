@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 690" width="1200" height="690" role="img" aria-labelledby="t d">
+<title id="t">Docket architecture</title>
+<desc id="d">Findings from scanners, AI agents and reports are imported, tried against a scope contract by five checks plus an optional AI review, and come out as survived, needs-human, killed, duplicate or suppressed with reports, a proof pack and an audit log.</desc>
+<style>
+:root{--bg:#f7fafa;--card:#ffffff;--line:#c9d6d6;--fg:#10222a;--mut:#51666e;--teal:#0d9488;--ok:#15803d;--warn:#b45309;--bad:#b91c1c;--grey:#64748b;--glow:#99f6e4}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1519;--card:#122229;--line:#2a4249;--fg:#e6f4f1;--mut:#8fb0b5;--teal:#2dd4bf;--ok:#4ade80;--warn:#fbbf24;--bad:#f87171;--grey:#94a3b8;--glow:#134e4a}}
+text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;fill:var(--fg)}
+.h{font-size:15px;font-weight:700}.s{font-size:12px;fill:var(--mut)}.t{font-size:13px;font-weight:600}.big{font-size:22px;font-weight:800}
+.box{fill:var(--card);stroke:var(--line);stroke-width:1.5}.arr{stroke:var(--teal);stroke-width:2.2;fill:none;marker-end:url(#ah)}
+.court{fill:var(--glow);fill-opacity:.35;stroke:var(--teal);stroke-width:2}.dash{stroke-dasharray:6 5}
+</style>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--teal)"/></marker></defs>
+<rect width="1200" height="690" rx="18" fill="var(--bg)"/>
+<text x="600" y="40" text-anchor="middle" class="big">Docket: every finding gets its day in court</text>
+<text x="600" y="62" text-anchor="middle" class="s">AI may say no. Only evidence can say yes.</text>
+
+<rect class="box" x="30" y="130" width="195" height="76" rx="12"/><text class="h" x="46" y="157">Scanners</text><text class="s" x="46" y="178">SARIF · Semgrep · Bandit </text><text class="s" x="46" y="193">Nuclei · Trivy · Gitleaks</text>
+<path class="arr" d="M225 168 L262 168"/>
+<rect class="box" x="30" y="230" width="195" height="76" rx="12"/><text class="h" x="46" y="257">AI agents</text><text class="s" x="46" y="278">Docket JSON · MCP tool calls</text>
+<path class="arr" d="M225 268 L262 268"/>
+<rect class="box" x="30" y="330" width="195" height="76" rx="12"/><text class="h" x="46" y="357">Free-text reports</text><text class="s" x="46" y="378">pentest text · chats</text><text class="s" x="46" y="393">(docket extract)</text>
+<path class="arr" d="M225 368 L262 368"/>
+<rect class="box" x="265" y="130" width="100" height="276" rx="12"/><text class="h" x="315" y="165" text-anchor="middle">Import</text><text class="s" x="315" y="188" text-anchor="middle">detect format</text><text class="s" x="315" y="206" text-anchor="middle">match paths</text><text class="s" x="315" y="224" text-anchor="middle">map class to</text><text class="s" x="315" y="242" text-anchor="middle">your impact</text><text class="s" x="315" y="260" text-anchor="middle">write repro</text><text class="s" x="315" y="278" text-anchor="middle">steps</text><text class="s" x="315" y="310" text-anchor="middle">mask secrets</text>
+<path class="arr" d="M365 268 L398 268"/>
+<rect class="box" x="395" y="78" width="360" height="40" rx="10" style="stroke:var(--teal)"/><text class="t" x="575" y="103" text-anchor="middle">Scope contract: what counts as a real problem here</text><path class="arr" d="M575 118 L575 136"/>
+<rect class="court" x="395" y="136" width="360" height="352" rx="16"/><text class="h" x="575" y="160" text-anchor="middle">THE COURT</text>
+<rect class="box" x="413" y="174" width="324" height="46" rx="10"/><text class="t" x="427" y="193">1  Reachability</text><text class="s" x="427" y="210">Reachable? Input reaches the sink? Real secret/version?</text>
+<rect class="box" x="413" y="228" width="324" height="46" rx="10"/><text class="t" x="427" y="247">2  Impact</text><text class="s" x="427" y="264">Is it an impact you would fix or pay for?</text>
+<rect class="box" x="413" y="282" width="324" height="46" rx="10"/><text class="t" x="427" y="301">3  Proof</text><text class="s" x="427" y="318">Per-class evidence, live probe, canary callback</text>
+<rect class="box" x="413" y="336" width="324" height="46" rx="10"/><text class="t" x="427" y="355">4  Judge</text><text class="s" x="427" y="372">Blind panel of models, never the finder's own</text>
+<rect class="box" x="413" y="390" width="324" height="46" rx="10"/><text class="t" x="427" y="409">5  Reconstruct</text><text class="s" x="427" y="426">Cited file, line and quote exist; short repro</text>
+<rect class="box dash" x="413" y="444" width="324" height="36" rx="10" style="stroke:var(--warn)"/><text class="t" x="427" y="466">+ AI review (optional): can reject, never approve</text>
+<rect class="box" x="395" y="540" width="124" height="62" rx="10"/><text class="t" x="457" y="566" text-anchor="middle">Code and facts</text><text class="s" x="457" y="584" text-anchor="middle" style="font-size:10px">read only</text>
+<path class="arr" d="M457 540 L457 492"/>
+<rect class="box" x="527" y="540" width="124" height="62" rx="10"/><text class="t" x="589" y="566" text-anchor="middle">Live probes</text><text class="s" x="589" y="584" text-anchor="middle" style="font-size:10px">own hosts only</text>
+<path class="arr" d="M589 540 L589 492"/>
+<rect class="box" x="659" y="540" width="124" height="62" rx="10"/><text class="t" x="721" y="566" text-anchor="middle">AI providers</text><text class="s" x="721" y="584" text-anchor="middle" style="font-size:10px">optional</text>
+<path class="arr" d="M721 540 L721 492"/>
+<path class="arr" d="M755 300 L792 300"/>
+<rect class="box" x="795" y="136" width="375" height="52" rx="10" style="stroke:var(--ok)"/><rect x="795" y="136" width="8" height="52" rx="4" fill="var(--ok)"/><text class="t" x="816" y="158" style="fill:var(--ok)">survived</text><text class="s" x="816" y="176">has evidence: go and fix it</text>
+<rect class="box" x="795" y="198" width="375" height="52" rx="10" style="stroke:var(--warn)"/><rect x="795" y="198" width="8" height="52" rx="4" fill="var(--warn)"/><text class="t" x="816" y="220" style="fill:var(--warn)">needs-human</text><text class="s" x="816" y="238">could not be settled: here is what to do next</text>
+<rect class="box" x="795" y="260" width="375" height="52" rx="10" style="stroke:var(--bad)"/><rect x="795" y="260" width="8" height="52" rx="4" fill="var(--bad)"/><text class="t" x="816" y="282" style="fill:var(--bad)">killed</text><text class="s" x="816" y="300">a check failed: here is exactly why</text>
+<rect class="box" x="795" y="322" width="375" height="52" rx="10" style="stroke:var(--grey)"/><rect x="795" y="322" width="8" height="52" rx="4" fill="var(--grey)"/><text class="t" x="816" y="344" style="fill:var(--grey)">duplicate · suppressed</text><text class="s" x="816" y="362">seen before / accepted with a reason</text>
+<path class="arr" d="M982 390 L982 420"/>
+<rect class="box" x="795" y="424" width="375" height="64" rx="10"/><text class="t" x="816" y="448">Outputs</text><text class="s" x="816" y="467">HTML report · SARIF · Markdown summary · proof pack</text><text class="s" x="816" y="481" style="font-size:11px">audit log (hash-chained) · ledger per finder</text>
+<rect class="box" x="795" y="540" width="375" height="62" rx="10"/><text class="t" x="816" y="565">docket replay proof-pack.zip</text><text class="s" x="816" y="584">anyone re-checks every verdict offline; edits are detected</text>
+<path class="arr" d="M982 488 L982 538" style="stroke-dasharray:5 4"/>
+<text x="600" y="640" text-anchor="middle" class="s">Unknown or malformed input becomes needs-human, never a silent pass. Crashing checks become unverified.</text>
+<text x="600" y="662" text-anchor="middle" class="s">Zero dependencies · Python 3.10+ · works offline · github.com/1337exe/docket</text>
+</svg>
